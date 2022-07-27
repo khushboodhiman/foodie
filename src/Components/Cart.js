@@ -6,7 +6,7 @@ import CartItem from "./CartItem";
 import "./CartItem.css";
 
 function Overlay(props) {
-  const { cart, setCart, closeCart } = props;
+  const { cart, closeCart } = props;
   console.log("cart", cart);
   return (
     <div className="cart-wrapper">
