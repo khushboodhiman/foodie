@@ -1,5 +1,5 @@
 import Card from "./Card";
-import classes from "./ProductCard.module.css";
+import "./ProductCard.css";
 import { useContext, useRef } from "react";
 import { CartContext } from "../CartContext";
 import QuantityField from "./QuantityField";
@@ -27,16 +27,16 @@ function ProductCard({ product }) {
   return (
     <>
       <Card>
-        <img className={classes.cardImage} src={image} alt={name} lazy></img>
-        <div className={classes.nameAmount}>
-          <div className={classes.name}>{name}</div>
-          <div className={classes.amount}>{amount}</div>
+        <img className="cardImage" src={image} alt={name} lazy></img>
+        <div className="nameAmount">
+          <div className="name">{name}</div>
+          <div className="amount">{amount}</div>
         </div>
-        <div className={classes.desc}>{desc}</div>
-        <div className={classes.cardFooter}>
+        <div className="desc">{desc}</div>
+        <div className="cardFooter">
           <QuantityField quantity={quantity} />
           <input
-            className={"primary-btn-s " + classes.addToCart}
+            className={"primary-btn-sm addToCart"}
             type="button"
             name="add-to-cart"
             defaultValue="Add to Cart"
