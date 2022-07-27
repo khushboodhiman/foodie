@@ -1,0 +1,9 @@
+.product-wrapper {
+  max-width: 1400px;
+  display: flex;
+  margin: 0 auto;
+  justify-items: center;
+  flex-wrap: wrap;
+  gap: 70px;
+  margin-bottom: 60px;
+}

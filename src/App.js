@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Header from "./Components/Header";
+import Main from "./Components/Main";
+import Products from "./Components/Products";
+import { ProductList } from "./ProductList";
+import { ProductContext } from "./ProductContext";
+import { CartContext } from "./CartContext";
+import Cart from "./Components/Cart";
 
 function App() {
+  const [products, setProducts] = useState(ProductList);
+  const [openCart, setOpenCart] = useState(false);
+  const [cart, setCart] = useState([]);
+
+  const closeCart = () => {
+    setOpenCart(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CartContext.Provider value={{ cart, setCart }}>
+        {openCart && <Cart closeCart={closeCart} />}
+        <ProductContext.Provider value={{ products, setProducts }}>
+          <div className="App">
+            <Header setOpenCart={setOpenCart} />
+            <Main />
+            <Products />
+          </div>
+        </ProductContext.Provider>
+      </CartContext.Provider>
+    </>
   );
 }
 
